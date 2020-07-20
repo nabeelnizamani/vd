@@ -36,7 +36,7 @@ Welcome to my VD!
       vdContract = eth.contract(abi).at(contract_address);
       
         // Getting User Info
-    vdContract.getUserInfo(web3.eth.coinbase).then(function(res) { 
+    vdContract.methods.getUserInfo().call(/*web3.eth.coinbase*/).then(function(res) { 
     console.log(res[0]);
     console.log(res[1]);
   });
