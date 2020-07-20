@@ -1,3 +1,6 @@
+require('ethjs.min.js');
+require('jquery.min.js');
+
 window.addEventListener('load', async () => {
 	if(typeof web3 == undefined) {
 	alert("Please install MetaMask extension in your browser");
