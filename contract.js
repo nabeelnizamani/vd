@@ -1,5 +1,6 @@
 require('ethjs.min.js');
 require('jquery.min.js');
+require('web3.min.js');
 
 window.addEventListener('load', async () => {
 	if(typeof web3 == undefined) {
