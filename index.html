@@ -1,23 +1,63 @@
+<link rel="stylesheet" href="css/bootstrap.min.css" />
 <html>
 	<head>
 		<title> Home - NN Vehicle Dealership </title>
 	</head>
 	
 	<body>
-		<center> <h3> NN Vehicle Dealership </h3>
-		<div id="userInfoDiv">
-			<h4> Your Info </h4>
-			<b>Name:</b> <div id="userName">  </div>
-			<b>CNIC:</b> <div id="userCNIC"> </div>
-		</div>
+	<br>
+		<center> <p style="font-size: 44px"> NN Vehicle Dealership </p>
+			<p style="font-size: 26px"> Good to see you here<span id="userName"></span>.<br>Sit back, relax, and choose your dream ride! </p>
 		</center>
+		<br>
+		<center>
+			<a href="ViewCars.html" class="btn btn-primary btn-lg" style="margin-right: 10px;"> View Cars </a>
+			<a href="BuyCar.html" class="btn btn-primary btn-lg"> Buy a Car </a>
+			<br><br><br>
+			<table class="table table-striped" style="width: 30%; font-size: 20px; color: white">
+				<tr>
+					<td> Cars Sold </td>
+					<td id="carsSold">  </td>
+				</tr>
+				<tr>
+					<td> Cars for Sale </td>
+					<td id="carsForSale">  </td>
+				</tr>
+			</table>
+		<center>
 	</body>
+	
+	<div class="fixed-bottom footer">
+		<center>
+		<p> NN Vehicle Dealership is a blockchain based car dealership running on the Ethereum network. <br>All transactions performed are cross-verified, secured and can never be forged. </p>
+		</center>
+	</div>
 	
 </html>
 
-<script src="ethjs.min.js"> </script>
-<script src="web3.min.js"> </script>
-<script src="jquery.min.js"> </script>
+<style>
+body {
+	font-family: Bahnschrift;
+	color: white;
+	background-image: url("assets/bgimg1.png");
+	background-size: cover;
+}
+.footer {
+padding-top: 15px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1; 
+}
+
+.btn {
+background-color: Transparent !important;
+border: 2px solid #ffffff !important;
+}
+</style>
+
+<script src="js/ethjs.min.js"> </script>
+<script src="js/web3.min.js"> </script>
+<script src="js/jquery.min.js"> </script>
 
 <script> 
 	$(document).ready(function() {
@@ -47,8 +87,8 @@
         alert("Please install MetaMask extension in your browser");
       }
     });
-    const abi = [	{		"constant": false,		"inputs": [			{				"name": "_vMake",				"type": "string"			},			{				"name": "_vModel",				"type": "string"			},			{				"name": "_vPrice",				"type": "uint256"			}		],		"name": "addNewCar",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "_vID",				"type": "uint256"			}		],		"name": "buyCar",		"outputs": [],		"payable": true,		"stateMutability": "payable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "_pName",				"type": "string"			},			{				"name": "_pCNIC",				"type": "uint256"			}		],		"name": "setUserInfo",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"inputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "constructor"	},	{		"constant": true,		"inputs": [			{				"name": "_vID",				"type": "uint256"			}		],		"name": "getCar",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "bool"			},			{				"name": "",				"type": "uint256"			},			{				"name": "",				"type": "address"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [],		"name": "getTotalNumber",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [],		"name": "getUserInfo",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "carID",				"type": "uint256"			}		],		"name": "ViewOwnership",		"outputs": [			{				"name": "",				"type": "bool"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	}];
-	const contract_address = '0xa0365C2EFF0CAe7AF6C0B7829BfD654AD6C1905D';
+    const abi = [	[	{		"constant": false,		"inputs": [			{				"name": "_vMake",				"type": "string"			},			{				"name": "_vModel",				"type": "string"			},			{				"name": "_vPrice",				"type": "uint256"			}		],		"name": "addNewCar",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "_vID",				"type": "uint256"			}		],		"name": "buyCar",		"outputs": [],		"payable": true,		"stateMutability": "payable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "_pName",				"type": "string"			},			{				"name": "_pCNIC",				"type": "uint256"			}		],		"name": "setUserInfo",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"inputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "constructor"	},	{		"constant": true,		"inputs": [			{				"name": "_vID",				"type": "uint256"			}		],		"name": "getCar",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "bool"			},			{				"name": "",				"type": "uint256"			},			{				"name": "",				"type": "address"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [],		"name": "getTotalCarsForSale",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [],		"name": "getTotalCarsSold",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [],		"name": "getTotalNumber",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [],		"name": "getUserInfo",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "_user",				"type": "address"			},			{				"name": "_vID",				"type": "uint256"			}		],		"name": "viewBoughtForPrice",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "carID",				"type": "uint256"			}		],		"name": "ViewOwnership",		"outputs": [			{				"name": "",				"type": "bool"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	}];
+const contract_address = '0xe6fae32286a8D62893dD98E9CE25e06094d74391';
     var eth = null;
     var vdContract;
 
@@ -56,14 +96,23 @@
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
  	    
+	// Set User's Name
     vdContract.getUserInfo({ from: web3.eth.coinbase })
-	.then(function(res) {
-		$("#userInfoDiv").show();
-	    	$("#userName").html(res[0]);
-	    	$("#userCNIC").html(res[1]['words'][0]);
-	    console.log(res[1]['words']);
-	    console.log(res[1]);
-	}).catch(function(err) { console.log(err) });
+		.then(function(res) {
+			$("#userName").html(res[0]);
+		}).catch(function(err) { console.log(err) });
+	
+	// Set Cars Sold
+	 vdContract.getTotalCarsSold({ from: web3.eth.coinbase })
+		.then(function(res) {
+			$("#carsSold").html(res[0]);
+		}).catch(function(err) { console.log(err) });
+	
+	// Set Cars for Sale
+	 vdContract.getTotalCarsForSale({ from: web3.eth.coinbase })
+		.then(function(res) {
+			$("#carsForSale").html(res[0]);
+		}).catch(function(err) { console.log(err) });
     }
   
 </script>
