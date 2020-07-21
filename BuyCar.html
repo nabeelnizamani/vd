@@ -32,7 +32,7 @@
 			<a href="index.html">Home</a> -
 			<a href="ViewCars.html">View Cars</a> -
 			<a href="BuyCar.html">Buy a Car</a>
-			<br><br>
+			<br>
 		<p> NN Vehicle Dealership is a blockchain based car dealership running on the Ethereum network. <br>All transactions performed are cross-verified, secured and can never be forged. </p>
 		</center>
 	</div>
@@ -65,9 +65,10 @@ border: 2px solid #ffffff !important;
 <script src="js/jquery.min.js"> </script>
 
 <script> 
-	$(document).ready(function() {
-		$("#userInfoDiv").hide();
-	});
+	$("#carIDForm" ).submit(function( event ) {
+		alert( "Handler for .submit() called." );
+		event.preventDefault();
+	});	
 	
 	
   // Connectivity: --------------------------------------------------------------------- //
@@ -97,10 +98,7 @@ const contract_address = '0xe6fae32286a8D62893dD98E9CE25e06094d74391';
     var eth = null;
     var vdContract;
 
-	$("#carIDForm" ).submit(function( event ) {
-		alert( "Handler for .submit() called." );
-		event.preventDefault();
-	});		 
+	 
 		 
     function startApp(web3) {
       eth = new Eth(web3.currentProvider);
