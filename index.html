@@ -35,14 +35,12 @@ Welcome to my VD!
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
       
-        // Getting User Info	    
-	vdContract.methods.getUserInfo().call(function(err,res){
-	    if(!err){
-		console.log(res);
-	    } else {
-		console.log(err);
-	    }
-);
+        // Getting User Info	  
+	vdContract.methods.getUserInfo().call().then(function(res){
+	    console.log(res);
+	}).catch(function(err) {
+	    console.log(err);
+	});
     }
   
 
