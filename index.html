@@ -94,7 +94,7 @@ border: 2px solid #ffffff !important;
 	// Set User's Name
     vdContract.getUserInfo({ from: web3.eth.coinbase })
 		.then(function(res) {
-			$("#userName").html(res[0]['words'][0]);
+			$("#userName").html(res[0]);
 		}).catch(function(err) { console.log(err) });
 	
 	// Set Cars Sold
@@ -106,8 +106,7 @@ border: 2px solid #ffffff !important;
 	// Set Cars for Sale
 	 vdContract.getTotalCarsForSale({ from: web3.eth.coinbase })
 		.then(function(res) {
-			$("#carsForSale").html(res[0]);
-		 console.log(res[0]['words'][0]);
+			$("#carsForSale").html(res[0]['words'][0]);
 		}).catch(function(err) { console.log(err) });
     }
   
