@@ -92,14 +92,13 @@ const contract_address = '0xe6fae32286a8D62893dD98E9CE25e06094d74391';
     var eth = null;
     var vdContract;
 
+	$("#carIDForm" ).submit(function( event ) {
+		alert( "Handler for .submit() called." );
+		event.preventDefault();
+	});		 
+		 
     function startApp(web3) {
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
     }
-		 
-	$("#carIDForm" ).submit(function( event ) {
-		alert( "Handler for .submit() called." );
-		event.preventDefault();
-	});
-  
 </script>
