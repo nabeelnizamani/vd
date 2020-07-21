@@ -7,6 +7,23 @@
 	<body>
 	<br>
 		<center> <p style="font-size: 44px"> NN Vehicle Dealership </p>
+					<br>
+		<p style="font-size: 30px"> Buy a Car </p>
+		<form id="carIDForm">
+			<div class="form-group" style="width: 25%">
+				<input style="background-color: Transparent; color: white !important" type="number" class="form-control" id="inputID" placeholder="Enter Car ID i.e. 24" required/>
+			</div>
+			<button type="submit" class="btn btn-primary"> Purchase </button>
+		</form>
+		<br>
+		<p> Unaware of the car ID? Please find it out <a href="ViewCars.html">here</a> </p>
+	</body>
+	
+	<div class="fixed-bottom footer">
+		<center>
+		<p> NN Vehicle Dealership is a blockchain based car dealership running on the Ethereum network. <br>All transactions performed are cross-verified, secured and can never be forged. </p>
+		</center>
+	</div>
 
 	</body>
 	
@@ -78,15 +95,11 @@ const contract_address = '0xe6fae32286a8D62893dD98E9CE25e06094d74391';
     function startApp(web3) {
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
- 	    
-    vdContract.getUserInfo({ from: web3.eth.coinbase })
-	.then(function(res) {
-		$("#userInfoDiv").show();
-	    	$("#userName").html(res[0]);
-	    	$("#userCNIC").html(res[1]['words'][0]);
-	    console.log(res[1]['words']);
-	    console.log(res[1]);
-	}).catch(function(err) { console.log(err) });
     }
+		 
+	$("#carIDForm" ).submit(function( event ) {
+		alert( "Handler for .submit() called." );
+		event.preventDefault();
+	});
   
 </script>
