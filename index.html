@@ -36,10 +36,10 @@ Welcome to my VD!
       vdContract = eth.contract(abi).at(contract_address);
       
         // Getting User Info	  
-	vdContract.methods.getUserInfo().call().then(function(res){
-	    console.log(res);
-	}).catch(function(err) {
-	    console.log(err);
+	vdContract.getUserInfo(address).then(function(res) {
+		$("#accountBalanceHeading").show();
+		var result = res[0]["words"][0];
+		$("#accountBalance").html(result).append(" MWT");
 	});
     }
   
