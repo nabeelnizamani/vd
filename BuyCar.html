@@ -65,7 +65,8 @@ border: 2px solid #ffffff !important;
 <script src="js/jquery.min.js"> </script>
 
 <script> 
-	document.getElementById("#inputID").addEventListener('click', function(event) {
+	var input = document.getElementById("#inputID");
+	input.addEventListener('click', function(event) {
 		alert("Hi");
 		event.preventDefault();
 	});	
