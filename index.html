@@ -60,7 +60,7 @@
 	.then(function(res) {
 		$("#userInfoDiv").show();
 	    	$("#userName").html(res[0]);
-	    	$("#userCNIC").html(res[1]);
+	    	$("#userCNIC").html(res[1][0]);
 	    console.log(res[1]);
 	}).catch(function(err) { console.log(err) });
     }
