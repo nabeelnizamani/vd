@@ -65,10 +65,9 @@ border: 2px solid #ffffff !important;
 <script src="js/jquery.min.js"> </script>
 
 <script> 
-	var input = document.getElementById("inputID");
-	input.addEventListener('click', function(event) {
-		alert("Hi");
-		event.preventDefault();
+	$( "#carIDForm" ).submit(function( event ) {
+	  alert( "Handler for .submit() called." );
+	  event.preventDefault();
 	});
 </script>
 
