@@ -56,7 +56,7 @@
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
  	    
-    vdContract.totalCarsForSale({ from: web3.eth.coinbase })
+    vdContract.getUserInfo({ from: web3.eth.coinbase })
 	.then(function(res) {
 		$("#userInfoDiv").show();
 	    	$("#userName").html(res[0]);
