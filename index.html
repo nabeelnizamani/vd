@@ -7,7 +7,7 @@
 	<body>
 	<br>
 		<center> <p style="font-size: 44px"> NN Vehicle Dealership </p>
-			<p style="font-size: 26px"> Good to see you here <span id="userName"></span><br>Sit back, relax, and choose your dream ride! </p>
+			<p style="font-size: 26px"> Good to see you here <span style="color: lightgreen" id="userName"></span><br>Sit back, relax, and choose your dream ride! </p>
 		</center>
 		<br>
 		<center>
@@ -17,11 +17,11 @@
 			<table class="table table-striped" style="width: 30%; font-size: 20px; color: white">
 				<tr>
 					<td> Cars Sold </td>
-					<td id="carsSold">  </td>
+					<td> <span style="color: lightgreen" id="carsSold"></span>  </td>
 				</tr>
 				<tr>
 					<td> Cars for Sale </td>
-					<td id="carsForSale">  </td>
+					<td> <span style="color: lightgreen" id="carsForSale"> </span>  </td>
 				</tr>
 			</table>
 		<center>
@@ -60,11 +60,6 @@ border: 2px solid #ffffff !important;
 <script src="js/jquery.min.js"> </script>
 
 <script> 
-	$(document).ready(function() {
-		$("#userInfoDiv").hide();
-	});
-	
-	
   // Connectivity: --------------------------------------------------------------------- //
       window.addEventListener('load', async () => {
       if(typeof web3 == undefined) {
