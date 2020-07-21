@@ -37,9 +37,7 @@ Welcome to my VD!
       
         // Getting User Info	  
 	vdContract.getUserInfo(address).then(function(res) {
-		$("#accountBalanceHeading").show();
-		var result = res[0]["words"][0];
-		$("#accountBalance").html(result).append(" MWT");
+		console.log(res);
 	});
     }
   
