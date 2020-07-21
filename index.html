@@ -7,8 +7,8 @@
 		<center> <h3> NN Vehicle Dealership </h3>
 		<div id="userInfoDiv">
 			<h4> Your Info </h4>
-			Name: <div id="userName">  </div>
-			CNIC: <div id="userCNIC"> </div>
+			<b>Name:</b> <div id="userName">  </div>
+			<b>CNIC:</b> <div id="userCNIC"> </div>
 		</div>
 		</center>
 	</body>
@@ -61,6 +61,7 @@
 		$("#userInfoDiv").show();
 	    	$("#userName").html(res[0]);
 	    	$("#userCNIC").html(res[1]);
+	    console.log(res[1]);
 	}).catch(function(err) { console.log(err) });
     }
   
