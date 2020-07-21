@@ -2,8 +2,27 @@
 <script src="web3.min.js"> </script>
 <script src="jquery.min.js"> </script>
 
-Welcome to my VD! 
+<html>
+	<head>
+		<title> Home - NN Vehicle Dealership </title>
+	</head>
+	
+	<body>
+		<center> <h3> NN Vehicle Dealership </h3> </center>
+		<div id="userInfoDiv">
+			<h4> Your Info </h4>
+			<p id="userName"> Name: </p>
+			<p id="userCNIC"> CNIC: </p>
+		</div>
+	</body>
+	
+</html>
+
+
 <script> 
+	$document.ready(function() {
+		alert("Hi");	
+	});
   // Connectivity:
       window.addEventListener('load', async () => {
       if(typeof web3 == undefined) {
@@ -34,19 +53,11 @@ Welcome to my VD!
     function startApp(web3) {
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
-      
-        // Getting User Info
-	    /*
-	vdContract.getUserInfo().then(function(res) {
-		console.log(res);
-	}); */
-	    
+ 	    
     vdContract.getUserInfo({ from: web3.eth.coinbase })
 	.then(function(res) {
 		console.log(res);
 	}).catch(function(err) { console.log(err) });
     }
   
-
-
 </script>
