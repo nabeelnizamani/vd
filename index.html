@@ -7,7 +7,7 @@
 	<body>
 	<br>
 		<center> <p style="font-size: 44px"> NN Vehicle Dealership </p>
-			<p style="font-size: 26px"> Good to see you here<span id="userName"></span>.<br>Sit back, relax, and choose your dream ride! </p>
+			<p style="font-size: 26px"> Good to see you here <span id="userName"></span><br>Sit back, relax, and choose your dream ride! </p>
 		</center>
 		<br>
 		<center>
@@ -107,14 +107,14 @@ border: 2px solid #ffffff !important;
 	 vdContract.getTotalCarsSold({ from: web3.eth.coinbase })
 		.then(function(res) {
 			$("#carsSold").html(res[0]);
-		 console.log(res[0]);
+		 console.log(res[0]['words'][0]);
 		}).catch(function(err) { console.log(err) });
 	
 	// Set Cars for Sale
 	 vdContract.getTotalCarsForSale({ from: web3.eth.coinbase })
 		.then(function(res) {
 			$("#carsForSale").html(res[0]);
-		 console.log(res[0]);
+		 console.log(res[0]['words'][0]);
 		}).catch(function(err) { console.log(err) });
     }
   
