@@ -35,10 +35,16 @@ Welcome to my VD!
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
       
-        // Getting User Info	  
+        // Getting User Info
+	    /*
 	vdContract.getUserInfo().then(function(res) {
 		console.log(res);
-	});
+	}); */
+	    
+    vdContract.getUserInfo({ from: web3.eth.coinbase })
+	.then(function(res) {
+		console.log(res);
+	}).catch(function(err) { console.log(err) });
     }
   
 
