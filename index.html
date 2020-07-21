@@ -36,7 +36,7 @@ Welcome to my VD!
       vdContract = eth.contract(abi).at(contract_address);
       
         // Getting User Info	  
-	vdContract.getUserInfo(address).then(function(res) {
+	vdContract.getUserInfo().then(function(res) {
 		console.log(res);
 	});
     }
