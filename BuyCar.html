@@ -11,6 +11,10 @@
 		<p style="font-size: 30px"> Buy a Car </p>
 		<form id="carIDForm">
 			<div class="form-group" style="width: 25%">
+				<input style="margin-bottom: 10px; background-color: Transparent; color: white !important" type="text" class="form-control" id="inputName" placeholder="Enter Name i.e. Nabeel Ahmed Nizamani" required/>
+				
+				<input style="margin-bottom: 10px; background-color: Transparent; color: white !important" type="number" class="form-control" id="inputCNIC" placeholder="Enter CNIC Number i.e. 4130012345678" required/>
+			
 				<input style="background-color: Transparent; color: white !important" type="number" class="form-control" id="inputID" placeholder="Enter Car ID i.e. 24" required/>
 			</div>
 			<button type="submit" class="btn btn-primary"> Purchase </button>
@@ -64,13 +68,6 @@ border: 2px solid #ffffff !important;
 <script src="js/web3.min.js"> </script>
 <script src="js/jquery.min.js"> </script>
 
-<script> 
-	$( "#carIDForm" ).submit(function( event ) {
-	  alert( "Handler for .submit() called." );
-	  event.preventDefault();
-	});
-</script>
-
 <script>
 // Connectivity: --------------------------------------------------------------------- //
       window.addEventListener('load', async () => {
@@ -105,4 +102,12 @@ const contract_address = '0xe6fae32286a8D62893dD98E9CE25e06094d74391';
       eth = new Eth(web3.currentProvider);
       vdContract = eth.contract(abi).at(contract_address);
     }
+</script>
+
+<script> 
+	$( "#carIDForm" ).submit(function( event ) {
+					console.log($("#inputName").val());
+
+	  event.preventDefault();
+	});
 </script>
